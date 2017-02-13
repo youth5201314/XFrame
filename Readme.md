@@ -20,12 +20,12 @@
 - [x] `XLoadingDialog`：简单实现加载等待对话框
 - [x] `XPermission`：简化Android 6.0 动态权限管理的操作
 - [x] `XRecyclerViewAdapter`：一个用于RecyclerView Adapter的开发库，包含添加Header，Footer，加载更多,加载失败，加载到底和支持多种布局
-<!--* `XUpdateApp`：检测更新App，后台下载，应用自动安装
+* `XUpdateApp`：检测更新App，后台下载，应用自动安装
 * `XRouter`：组件化路由框架
 * `XCache`：缓存
 * `XCrash`：异常崩溃统一管理
 * `XTabPage`：Tab+Fragment快速实现
-* `XWebView`：WebView UI与常见的功能封装-->
+* `XWebView`：WebView UI与常见的功能封装
 - [x] `XStatusBar`：实现沉浸式状态栏
 - [x] `XSplashView`：闪屏页或者广告页
 - [x] `XToast`：简单的吐司使用
