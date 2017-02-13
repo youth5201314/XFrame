@@ -1,5 +1,5 @@
 
-#XFrame — Android快速开发框架
+#XFrame — Android快速开发框架(还在整理中)
 
 >从小的功能做起，只做必要的封装，让开发更加简单 ———— XFrame
 
