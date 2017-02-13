@@ -30,7 +30,7 @@
         <activity android:name=".ui.demo.XLoadingDialogActivity" />
         <activity android:name=".ui.demo.XToastActivity" />
         <activity android:name=".ui.demo.XLoadingViewActivity" />
-        <activity android:name=".ui.demo.XLoadingViewActivity2"></activity>
+        <activity android:name=".ui.demo.XLoadingViewActivity2"/>
     </application>
 
 </manifest>

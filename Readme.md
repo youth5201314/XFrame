@@ -1,5 +1,5 @@
 
-#XFrame Android快速开发框架
+#XFrame — Android快速开发框架
 
 >从小的功能做起，只做必要的封装，让开发更加简单 ———— XFrame
 
@@ -20,22 +20,37 @@
 - [x] `XLoadingDialog`：简单实现加载等待对话框
 - [x] `XPermission`：简化Android 6.0 动态权限管理的操作
 - [x] `XRecyclerViewAdapter`：一个用于RecyclerView Adapter的开发库，包含添加Header，Footer，加载更多,加载失败，加载到底和支持多种布局
-* `XUpdateApp`：检测更新App，后台下载，应用自动安装
+<!--* `XUpdateApp`：检测更新App，后台下载，应用自动安装
 * `XRouter`：组件化路由框架
 * `XCache`：缓存
 * `XCrash`：异常崩溃统一管理
 * `XTabPage`：Tab+Fragment快速实现
-* `XWebView`：WebView UI与常见的功能封装
+* `XWebView`：WebView UI与常见的功能封装-->
 - [x] `XStatusBar`：实现沉浸式状态栏
 - [x] `XSplashView`：闪屏页或者广告页
 - [x] `XToast`：简单的吐司使用
 - [x] `Utils工具类集合`：内置常用工具类
 - [x] `自定义View`：内置常用自定义控件
 
+##使用步骤 
+
+#### Step 1.依赖XFrame
+Gradle 
+```groovy
+dependencies{
+    compile 'com.youth.xframe:xframe:1.0.0' 
+}
+```
+或者引用本地lib
+```groovy
+compile project(':xframe')
+```
+
 
 ## Thanks
 
-    感谢以下开源项目的作者，本项目中有些功能受你们项目灵感的启发，有些功能也用到你们的代码完成。对此如果有什么意见请与我联系！再次感谢！
+    感谢以下开源项目的作者，本项目中有些功能受你们项目灵感的启发，有些功能也用到你们的代码完成。
+    对此如果有什么意见请与我联系！再次感谢！
 
 - [orhanobut/logger](https://github.com/orhanobut/logger)
 - [laobie/StatusBarUtil](https://github.com/laobie/StatusBarUtil)
