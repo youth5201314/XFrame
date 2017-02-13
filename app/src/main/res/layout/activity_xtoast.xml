@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/button_error_toast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="错误" />
+
+    <Button
+        android:id="@+id/button_success_toast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="成功" />
+
+    <Button
+        android:id="@+id/button_info_toast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="信息" />
+
+    <Button
+        android:id="@+id/button_warning_toast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="警告" />
+
+    <Button
+        android:id="@+id/button_normal_no_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="正常(无图标)" />
+
+    <Button
+        android:id="@+id/button_normal_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="正常(自定义图标)" />
+
+    <Button
+        android:id="@+id/button_custom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义" />
+
+</LinearLayout>

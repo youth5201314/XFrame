@@ -1,0 +1,21 @@
+<resources>
+
+    <style name="loading_dialog" parent="android:Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.4</item>
+    </style>
+
+    <style name="xloading_padding_style">
+        <item name="android:paddingTop">@dimen/XFrame_spacing</item>
+        <item name="android:paddingBottom">@dimen/XFrame_spacing</item>
+        <item name="android:paddingLeft">@dimen/XFrame_spacing_large</item>
+        <item name="android:paddingRight">@dimen/XFrame_spacing_large</item>
+    </style>
+
+</resources>

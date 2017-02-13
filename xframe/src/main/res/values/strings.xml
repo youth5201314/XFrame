@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">XFrame</string>
+    <string name="xloading_dialog_message">努力加载中...</string>
+    <string name="xloading_no_network_text">无网络连接，请检查你的网络</string>
+    <string name="xloading_error_text">加载失败，请稍后再试</string>
+    <string name="xloading_empty_text">暂无数据</string>
+    <string name="xloading_retry_text">点击重试</string>
+</resources>

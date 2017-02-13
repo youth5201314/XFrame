@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="XFrame_darker_gray">#aaaaaa</color>
+    <color name="XFrame_white">#ffffff</color>
+    <color name="XFrame_text_gray">#8a8a8a</color>
+
+    <color name="XFrame_loading_dialog_bg">@color/XFrame_white</color>
+    <color name="XFrame_loading_dialog_message">#595959</color>
+</resources>

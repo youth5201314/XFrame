@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/loading1"
+        android:text="弹出对话框"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="show"/>
+    <Button
+        android:id="@+id/loading2"
+        android:text="弹出不可取消对话框"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="show"/>
+    <Button
+        android:id="@+id/loading3"
+        android:text="弹出自定义文字"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="show"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="B"
+        android:textSize="300sp"
+        android:gravity="center"/>
+</LinearLayout>

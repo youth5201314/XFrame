@@ -38,3 +38,10 @@ captures/
 
 # Keystore files
 *.jks
+/.idea
+/gradle
+/gradle.properties
+/gradlew
+/gradlew.bat
+/app/app.iml
+/xframe/xframe.iml
