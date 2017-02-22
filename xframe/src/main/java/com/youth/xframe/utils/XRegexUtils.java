@@ -43,7 +43,43 @@ public class XRegexUtils {
     }
 
     /**
-     * 是否为车牌号（沪A88888）
+     * 简单验证用户名（字母、数字、下划线）
+     *
+     * @param username 用户名
+     * @return 是否为用户名
+     */
+
+    public static boolean checkUserName(String username) {
+        Pattern pattern = Pattern.compile("^\\w+$");
+        return pattern.matcher(username).find();
+
+    }
+    /**
+     * 简单验证昵称（字母、数字、汉字、下划线）
+     *
+     * @param nickname 昵称
+     * @return 是否为昵称
+     */
+
+    public static boolean checkNickName(String nickname) {
+        Pattern pattern = Pattern.compile("\\w\\u4e00-\\u9fa5]+");
+        return pattern.matcher(nickname).find();
+
+    }
+    /**
+     * 简单验证密码（6-16位、字母、数字、字符）
+     *
+     * @param password 密码
+     * @return 是否为密码
+     */
+
+    public static boolean checkPassword(String password) {
+        Pattern pattern = Pattern.compile("^(\\w|[`~!@#$%^&*()+=|{}':;',\\\\\\\\[\\\\\\\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]){6,16}$");
+        return pattern.matcher(password).find();
+
+    }
+    /**
+     * 是否为车牌号（川A88888）
      *
      * @param vehicleNo 车牌号
      * @return 是否为车牌号
@@ -62,7 +98,8 @@ public class XRegexUtils {
      * @return 验证成功返回true，验证失败返回false
      */
     public static boolean checkIdCard(String idCard) {
-        String regex = "[1-9]\\d{13,16}[a-zA-Z0-9]{1}";
+        // 简单验证/^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/
+        String regex = "(^[1-9]\\d{5}(18|19|([23]\\d))\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$)|(^[1-9]\\d{5}\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{2}$)";
         return Pattern.matches(regex, idCard);
     }
 

@@ -33,7 +33,7 @@ public abstract class BaseActivity extends XActivity {
     }
 
     protected void setStatusBar() {
-        XStatusBar.setColor(this, getResources().getColor(R.color.colorPrimary));
+        XStatusBar.setColor(this, getResources().getColor(R.color.colorPrimary),0);
     }
 
     @Override

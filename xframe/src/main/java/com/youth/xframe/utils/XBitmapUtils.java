@@ -360,7 +360,7 @@ public class XBitmapUtils {
     }
 
     /**
-     * 获得圆角图片的方法
+     * 获得圆角的Bitmap
      *
      * @param bitmap  源Bitmap
      * @param roundPx 圆角大小
@@ -389,7 +389,7 @@ public class XBitmapUtils {
     }
 
     /**
-     * 获得带倒影的图片方法
+     * 获得带倒影的Bitmap
      *
      * @param bitmap 源Bitmap
      * @return 带倒影的Bitmap
@@ -483,7 +483,7 @@ public class XBitmapUtils {
     }
 
     /**
-     * 转换图片成圆形
+     * 获得圆形的Bitmap
      *
      * @param bitmap 传入Bitmap对象
      * @return 圆形Bitmap
@@ -664,7 +664,7 @@ public class XBitmapUtils {
     }
 
     /**
-     * 图片压缩方法：（使用compress的方法）
+     * 图片压缩处理（使用compress的方法）
      * <p/>
      * <br>
      * <b>说明</b> 如果bitmap本身的大小小于maxSize，则不作处理
@@ -764,7 +764,7 @@ public class XBitmapUtils {
     }
 
     /**
-     * 水平翻转处理
+     * 水平翻转图片
      *
      * @param bitmap 原图
      * @return 水平翻转后的图片
@@ -777,7 +777,7 @@ public class XBitmapUtils {
     }
 
     /**
-     * 垂直翻转处理
+     * 垂直翻转图片
      *
      * @param bitmap 原图
      * @return 垂直翻转后的图片

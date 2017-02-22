@@ -80,6 +80,7 @@ public class XDateUtils {
             return new SimpleDateFormat();
         }
     };
+
     /**
      * 获取SimpleDateFormat实例
      *
@@ -94,7 +95,7 @@ public class XDateUtils {
     }
 
     /**
-     * 获取表示当前时间的字符串
+     * 获取当前时间的字符串
      *
      * @return
      */

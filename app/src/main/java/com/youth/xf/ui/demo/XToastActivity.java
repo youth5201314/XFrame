@@ -12,8 +12,6 @@ import com.youth.xframe.utils.XOutdatedUtils;
 import com.youth.xframe.widget.XToast;
 
 public class XToastActivity extends BaseActivity implements View.OnClickListener {
-
-
     Button error;
     Button success;
     Button info;
@@ -49,7 +47,9 @@ public class XToastActivity extends BaseActivity implements View.OnClickListener
         normalNoIcon.setOnClickListener(this);
         normalIcon.setOnClickListener(this);
         custom.setOnClickListener(this);
+
     }
+
 
     @Override
     public void onClick(View v) {
