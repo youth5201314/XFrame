@@ -7,6 +7,6 @@ public class App extends XApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        XFrame.initXLog().setTag("Test");
+        XFrame.initXLog();
     }
 }

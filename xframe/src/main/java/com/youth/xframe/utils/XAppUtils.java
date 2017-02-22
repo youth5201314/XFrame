@@ -131,7 +131,7 @@ public class XAppUtils {
         return packageInfo;
     }
     /**
-     * 获取版本号
+     * 获取版本名称
      * String
      * @return 当前应用的版本名称
      */

@@ -39,32 +39,32 @@ public class XToast {
     private XToast() {
     }
 
-    public static @CheckResult Toast normal( @NonNull String message) {
+    public static Toast normal( @NonNull String message) {
         return normal( message, Toast.LENGTH_SHORT, null);
     }
 
-    public static @CheckResult Toast normal( @NonNull String message, Drawable icon) {
+    public static Toast normal( @NonNull String message, Drawable icon) {
         return normal( message, Toast.LENGTH_SHORT, icon);
     }
 
-    public static @CheckResult Toast normal( @NonNull String message, int duration) {
+    public static Toast normal( @NonNull String message, int duration) {
         return normal( message, duration);
     }
 
-    public static @CheckResult Toast normal( @NonNull String message, int duration,
+    public static Toast normal( @NonNull String message, int duration,
                                             Drawable icon) {
         return custom( message, icon ,NORMAL_COLOR, duration);
     }
 
-    public static @CheckResult Toast warning( @NonNull String message) {
+    public static Toast warning( @NonNull String message) {
         return warning( message, Toast.LENGTH_SHORT, true);
     }
 
-    public static @CheckResult Toast warning( @NonNull String message, int duration) {
+    public static Toast warning( @NonNull String message, int duration) {
         return warning( message, duration, true);
     }
 
-    public static @CheckResult Toast warning( @NonNull String message, int duration, boolean withIcon) {
+    public static Toast warning( @NonNull String message, int duration, boolean withIcon) {
         Drawable icon=null;
         if (withIcon){
             icon=XOutdatedUtils.getDrawable( R.drawable.xtoast_warning);
@@ -72,15 +72,15 @@ public class XToast {
         return custom( message,icon, WARNING_COLOR, duration);
     }
 
-    public static @CheckResult Toast info( @NonNull String message) {
+    public static Toast info( @NonNull String message) {
         return info( message, Toast.LENGTH_SHORT, true);
     }
 
-    public static @CheckResult Toast info( @NonNull String message, int duration) {
+    public static Toast info( @NonNull String message, int duration) {
         return info( message, duration, true);
     }
 
-    public static @CheckResult Toast info( @NonNull String message, int duration, boolean withIcon) {
+    public static Toast info( @NonNull String message, int duration, boolean withIcon) {
         Drawable icon=null;
         if (withIcon){
             icon=XOutdatedUtils.getDrawable( R.drawable.xtoast_info);
@@ -88,15 +88,15 @@ public class XToast {
         return custom( message,icon, INFO_COLOR, duration);
     }
 
-    public static @CheckResult Toast success( @NonNull String message) {
+    public static Toast success( @NonNull String message) {
         return success( message, Toast.LENGTH_SHORT, true);
     }
 
-    public static @CheckResult Toast success( @NonNull String message, int duration) {
+    public static Toast success( @NonNull String message, int duration) {
         return success( message, duration, true);
     }
 
-    public static @CheckResult Toast success( @NonNull String message, int duration, boolean withIcon) {
+    public static Toast success( @NonNull String message, int duration, boolean withIcon) {
         Drawable icon=null;
         if (withIcon){
             icon=XOutdatedUtils.getDrawable( R.drawable.xtoast_success);
@@ -104,15 +104,15 @@ public class XToast {
         return custom( message,icon, SUCCESS_COLOR, duration);
     }
 
-    public static @CheckResult Toast error( @NonNull String message) {
+    public static Toast error( @NonNull String message) {
         return error( message, Toast.LENGTH_SHORT, true);
     }
 
-    public static @CheckResult Toast error( @NonNull String message, int duration) {
+    public static Toast error( @NonNull String message, int duration) {
         return error( message, duration, true);
     }
 
-    public static @CheckResult Toast error( @NonNull String message, int duration, boolean withIcon) {
+    public static Toast error( @NonNull String message, int duration, boolean withIcon) {
         Drawable icon=null;
         if (withIcon){
             icon=XOutdatedUtils.getDrawable( R.drawable.xtoast_error);
@@ -120,22 +120,22 @@ public class XToast {
         return custom( message,icon, ERROR_COLOR, duration);
     }
 
-    public static @CheckResult Toast custom(@NonNull String message, @ColorInt int tintColor) {
+    public static Toast custom(@NonNull String message, @ColorInt int tintColor) {
         return custom( message, null, DEFAULT_TEXT_COLOR, tintColor,Toast.LENGTH_SHORT);
     }
 
-    public static @CheckResult Toast custom( @NonNull String message, Drawable icon, @ColorInt int tintColor) {
+    public static Toast custom( @NonNull String message, Drawable icon, @ColorInt int tintColor) {
         return custom( message, icon, DEFAULT_TEXT_COLOR, tintColor,Toast.LENGTH_SHORT);
     }
 
-    public static @CheckResult Toast custom(@NonNull String message, @ColorInt int tintColor,int duration) {
+    public static Toast custom(@NonNull String message, @ColorInt int tintColor,int duration) {
         return custom( message, null, DEFAULT_TEXT_COLOR, tintColor,duration);
     }
 
-    public static @CheckResult Toast custom( @NonNull String message, Drawable icon, @ColorInt int tintColor,int duration) {
+    public static Toast custom( @NonNull String message, Drawable icon, @ColorInt int tintColor,int duration) {
         return custom( message, icon, DEFAULT_TEXT_COLOR, tintColor,duration);
     }
-    public static @CheckResult Toast custom( @NonNull String message, @DrawableRes int iconRes,
+    public static Toast custom( @NonNull String message, @DrawableRes int iconRes,
                                             @ColorInt int textColor, @ColorInt int tintColor, int duration) {
         return custom( message, XOutdatedUtils.getDrawable( iconRes), textColor,tintColor, duration);
     }
@@ -149,7 +149,7 @@ public class XToast {
      * @param duration 显示时长
      * @return
      */
-    public static @CheckResult Toast custom( @NonNull String message, Drawable icon,
+    public static Toast custom( @NonNull String message, Drawable icon,
                                             @ColorInt int textColor, @ColorInt int tintColor, int duration) {
         Toast currentToast = new Toast(context);
         View toastLayout = LayoutInflater.from(context).inflate(R.layout.xtoast_view, null);

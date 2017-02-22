@@ -26,7 +26,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25+'
-    provided 'com.android.support:recyclerview-v7:25+'
+    compile 'com.android.support:recyclerview-v7:25+'
 }
 def siteUrl = 'https://github.com/youth5201314/XFrame' // 项目的主页
 def gitUrl = 'https://github.com/youth5201314/XFrame.git' // Git仓库的url

@@ -23,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.AboutActivity" />
         <activity android:name=".ui.demo.XLogDemoActivity" />
         <activity android:name=".ui.demo.XPermissionDemoActivity" />
         <activity android:name=".ui.demo.XRecyclerViewAdapterActivity" />

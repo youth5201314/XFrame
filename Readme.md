@@ -18,7 +18,7 @@
 - [x] `XLog`：可输出漂亮容易查看的日志，支持Json、Xml、Map、List等格式输出，可全局配置
 - [x] `XLoadingView`：简单实用的页面状态统一管理 ，加载中、无网络、无数据、出错等状态的随意切换
 - [x] `XLoadingDialog`：简单实现加载等待对话框
-- [x] `XPermission`：简化Android 6.0 动态权限管理的操作
+- [x] `XPermission`：简化Android动态权限管理的操作
 - [x] `XRecyclerViewAdapter`：一个用于RecyclerView Adapter的开发库，包含添加Header，Footer，加载更多,加载失败，加载到底和支持多种布局
 * `XUpdateApp`：检测更新App，后台下载，应用自动安装
 * `XRouter`：组件化路由框架

@@ -77,6 +77,7 @@ public class XPermissionDemoActivity extends BaseActivity implements View.OnClic
     private void doCallPhone() {
         XPermission.requestPermissions(this, 100, new String[]{Manifest.permission
                 .CALL_PHONE}, new XPermission.OnPermissionListener() {
+            //权限申请成功时调用
             @Override
             public void onPermissionGranted() {
                 Intent intent = new Intent();
@@ -84,9 +85,10 @@ public class XPermissionDemoActivity extends BaseActivity implements View.OnClic
                 intent.setData(Uri.parse("tel:18682555854"));
                 startActivity(intent);
             }
-
+            //权限被用户禁止时调用
             @Override
             public void onPermissionDenied() {
+                //给出友好提示，并且提示启动当前应用设置页面打开权限
                 XPermission.showTipsDialog(XPermissionDemoActivity.this);
             }
         });

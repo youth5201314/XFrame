@@ -1,48 +1,27 @@
 package com.youth.xf.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v4.view.ViewPager;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.youth.banner.Banner;
 import com.youth.xf.BaseActivity;
 import com.youth.xf.R;
-import com.youth.xf.loder.GlideImageLoader;
 import com.youth.xf.ui.adapter.MyFragmentPagerAdapter;
-import com.youth.xf.view.WrapContentHeightViewPager;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
-public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener {
-    static final int REFRESH_COMPLETE = 0X1112;
+public class MainActivity extends BaseActivity  {
     private List<Fragment> fragments;
     private String[] titles = new String[]{"Demo", "API"};
-    Banner banner;
-    AppBarLayout appBarLayout;
-    SwipeRefreshLayout mSwipeLayout;
     TabLayout tabLayout;
-    MyFragmentPagerAdapter adapter;
-    WrapContentHeightViewPager viewPager;
-    static List<String> urls;
-    private Handler mHandler = new Handler() {
-        public void handleMessage(android.os.Message msg) {
-            switch (msg.what) {
-                case REFRESH_COMPLETE:
-                    String[] urls = getResources().getStringArray(R.array.url4);
-                    List list = Arrays.asList(urls);
-                    List arrayList = new ArrayList(list);
-                    banner.update(arrayList);
-                    mSwipeLayout.setRefreshing(false);
-                    break;
-            }
-        }
-    };
+    ViewPager viewPager;
 
     @Override
     public int getLayoutId() {
@@ -50,9 +29,6 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
     }
     @Override
     public void initData(Bundle savedInstanceState) {
-        String[] url=getResources().getStringArray(R.array.url);
-        List list= Arrays.asList(url);
-        urls=new ArrayList<String>(list);
         fragments=new ArrayList<>();
         fragments.add(new DemoFragment());
         fragments.add(new APIFragment());
@@ -60,50 +36,28 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
 
     @Override
     public void initView() {
-        mSwipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe);
-        banner = (Banner) findViewById(R.id.banner);
-        appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        viewPager = (WrapContentHeightViewPager) findViewById(R.id.viewPager);
-
-        banner.setImages(urls).setImageLoader(new GlideImageLoader()).start();
-
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
         tabLayout.addTab(tabLayout.newTab().setText(titles[0]));
         tabLayout.addTab(tabLayout.newTab().setText(titles[1]));
         viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager(),fragments,titles));
         tabLayout.setupWithViewPager(viewPager);
 
-        mSwipeLayout.setOnRefreshListener(this);
-        mSwipeLayout.setColorSchemeResources(R.color.main_color);
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (verticalOffset >= 0) {
-                    mSwipeLayout.setEnabled(true);
-                } else {
-                    mSwipeLayout.setEnabled(false);
-                }
-            }
-        });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
-    public void onRefresh() {
-        mHandler.sendEmptyMessageDelayed(REFRESH_COMPLETE, 2000);
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_about:
+                startActivity(new Intent(this,AboutActivity.class)
+                .putExtra("title","关于XFrame"));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        //开始轮播
-        banner.startAutoPlay();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        //结束轮播
-        banner.stopAutoPlay();
-    }
-
 }

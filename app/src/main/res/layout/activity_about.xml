@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="16dp"
+            android:text="XFrame简介
+
+XFrame你可以理解成是一个Android开发的工具集合。我在写XFrame时就明确了方向，我不会去封装http、图片加载、ioc、orm 等这些听起来非常不错的想法。 为什么呢？这些功能现在都有很强大的框架，我也做不到那么好，而且更新很快，隔段时间就有新的框架出现，每个人都有自己的选择，我不想使用者因为这个局限大家。 我的本意是为了通过封装Android中一些的复杂操作而达到简化Android应用级开发的成本，用最少的代码实现更多的功能，我们只封装那些大部分应用必须用到但有总是增加我们繁琐的工作量。也许市面上单个功能模块有现成，而且很多！我们总是需要去挨着选择，但他们之间并不一定兼容，我们需要浪费在每个项目中的修改、拷贝、维护时间，而XFrame算是你还不错的选择对象！
+
+详细文档请前往wiki
+
+特性
+
+XFrame主要有这些功能：
+
+ XLog：可输出漂亮容易查看的日志，支持Json、Xml、Map、List等格式输出，可全局配置
+ XLoadingView：简单实用的页面状态统一管理 ，加载中、无网络、无数据、出错等状态的随意切换
+ XLoadingDialog：简单实现加载等待对话框
+ XPermission：简化Android 6.0 动态权限管理的操作
+ XRecyclerViewAdapter：一个用于RecyclerView Adapter的开发库，包含添加Header，Footer，加载更多,加载失败，加载到底和支持多种布局
+XUpdateApp：检测更新App，后台下载，应用自动安装
+XRouter：组件化路由框架
+XCache：缓存
+XCrash：异常崩溃统一管理
+XTabPage：Tab+Fragment快速实现
+XWebView：WebView UI与常见的功能封装
+ XStatusBar：实现沉浸式状态栏
+ XSplashView：闪屏页或者广告页
+ XToast：简单的吐司使用
+ Utils工具类集合：内置常用工具类
+ 自定义View：内置常用自定义控件"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tv_info"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_github"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_info"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="18dp"
+            android:text="https://github.com/youth5201314/XFrame"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_github"
+            android:layout_marginTop="25dp"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="关于我"
+                android:textColor="@color/main_color"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Email : 1028729086@qq.com"
+                android:textColor="@color/XFrame_text_gray"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>
