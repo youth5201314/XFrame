@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.youth.xf.BaseActivity;
 import com.youth.xf.R;
-import com.youth.xframe.widget.XLoadingView;
+import com.youth.xframe.widget.loadingview.XLoadingView;
 import com.youth.xframe.widget.XToast;
 
 public class XLoadingViewActivity2 extends BaseActivity {

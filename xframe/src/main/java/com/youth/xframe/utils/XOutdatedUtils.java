@@ -3,6 +3,7 @@ package com.youth.xframe.utils;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -37,4 +38,15 @@ public class XOutdatedUtils {
             return XFrame.getResources().getDrawable(id);
     }
 
+    /**
+     * getColor过时方法处理
+     * @param id
+     * @return
+     */
+    public static int getColor(@ColorRes int id) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            return XFrame.getContext().getColor(id);
+        else
+            return XFrame.getResources().getColor(id);
+    }
 }

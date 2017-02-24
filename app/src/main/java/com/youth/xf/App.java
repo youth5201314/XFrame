@@ -8,5 +8,7 @@ public class App extends XApplication {
     public void onCreate() {
         super.onCreate();
         XFrame.initXLog();
+        XFrame.initXLoadingView()
+                .setErrorViewResId(R.layout._loading_layout_error);
     }
 }

@@ -16,7 +16,7 @@
         android:textColor="@color/XFrame_text_gray"
         android:textSize="@dimen/XFrame_text_size" />
     <TextView
-        android:id="@+id/xloading_retry"
+        android:id="@id/xloading_retry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/xloading_retry_text"

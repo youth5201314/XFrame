@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import com.youth.xframe.XFrame;
 
+
 public class XLogConfig {
 
     private boolean showThreadInfo = true;

@@ -1,10 +1,12 @@
 package com.youth.xframe.entity;
 
 
+import com.youth.xframe.common.NotObfuscateInterface;
+
 /**
  * 时间差计算结果封装类
  */
-public class DateDifference {
+public class DateDifference implements NotObfuscateInterface{
     private long millisecond;
     private long second;
     private long minute;

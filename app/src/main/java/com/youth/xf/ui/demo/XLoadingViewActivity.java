@@ -5,11 +5,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.youth.xf.BaseActivity;
 import com.youth.xf.R;
-import com.youth.xframe.widget.XLoadingView;
+import com.youth.xframe.widget.loadingview.XLoadingView;
 import com.youth.xframe.widget.XToast;
 
 public class XLoadingViewActivity extends BaseActivity {
