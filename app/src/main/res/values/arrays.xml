@@ -20,5 +20,6 @@
         <item>XLoadingDialog 加载等待对话框用法</item>
         <item>XToast 自定义Toast用法</item>
         <item>XLoadingView 页面多状态布局</item>
+        <item>XCache 缓存用法</item>
     </array>
 </resources>

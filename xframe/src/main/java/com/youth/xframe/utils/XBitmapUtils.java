@@ -19,6 +19,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader.TileMode;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.os.Build;
@@ -145,11 +146,14 @@ public class XBitmapUtils {
 
     /**
      * 把bitmap转化为bytes
-     *
+     *  Bitmap → byte[]
      * @param bitmap 源Bitmap
      * @return Byte数组
      */
     public static byte[] getBytesFromBitmap(Bitmap bitmap) {
+        if (bitmap == null) {
+            return null;
+        }
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
         return baos.toByteArray();
@@ -177,7 +181,7 @@ public class XBitmapUtils {
 
     /**
      * 获取一个指定大小的bitmap
-     *
+     * byte[] → Bitmap
      * @param b Byte数组
      * @return 需要的Bitmap
      */
@@ -216,6 +220,9 @@ public class XBitmapUtils {
      * @return Bitmap
      */
     public static Bitmap getBitmapFromView(View view) {
+        if (view == null) {
+            return null;
+        }
         Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(),
                 Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
@@ -234,7 +241,9 @@ public class XBitmapUtils {
      * @return Bitmap
      */
     public static Bitmap getBitmapFromView2(View view) {
-
+        if (view == null) {
+            return null;
+        }
         view.clearFocus();
         view.setPressed(false);
 
@@ -268,18 +277,37 @@ public class XBitmapUtils {
      * @return Bitmap
      */
     public static Bitmap getBitmapFromDrawable(Drawable drawable) {
-        int width = drawable.getIntrinsicWidth();
-        int height = drawable.getIntrinsicHeight();
-        Bitmap bitmap = Bitmap.createBitmap(width, height, drawable
-                .getOpacity() != PixelFormat.OPAQUE ? Config.ARGB_8888
-                : Config.RGB_565);
+        if (drawable == null) {
+            return null;
+        }
+        // 取 drawable 的长宽
+        int w = drawable.getIntrinsicWidth();
+        int h = drawable.getIntrinsicHeight();
+        // 取 drawable 的颜色格式
+        Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
+                : Bitmap.Config.RGB_565;
+        // 建立对应 bitmap
+        Bitmap bitmap = Bitmap.createBitmap(w, h, config);
+        // 建立对应 bitmap 的画布
         Canvas canvas = new Canvas(bitmap);
-        drawable.setBounds(0, 0, width, height);
+        drawable.setBounds(0, 0, w, h);
+        // 把 drawable 内容画到画布中
         drawable.draw(canvas);
         return bitmap;
-
     }
-
+    /**
+     * 将 Bitmap转化为Drawable
+     *
+     * @param bm Bitmap
+     * @return Drawable
+     */
+    @SuppressWarnings("deprecation")
+    public static Drawable getDrawableFromBitmap(Bitmap bm) {
+        if (bm == null) {
+            return null;
+        }
+        return new BitmapDrawable(bm);
+    }
     /**
      * 合并Bitmap
      *

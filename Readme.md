@@ -1,5 +1,5 @@
 
-#XFrame — Android快速开发框架(还在整理中，可以先star，先不要用于量产模式)
+##### XFrame — Android快速开发框架(还在整理中，可以先star，先不要用于量产模式)
 
 >从小的功能做起，只做必要的封装，让开发更加简单 ———— XFrame
 
@@ -24,23 +24,23 @@
 - [x] `XRecyclerViewAdapter`：一个用于RecyclerView Adapter的开发库，包含添加Header，Footer，加载更多,加载失败，加载到底和支持多种布局
 <!-- * `XUpdateApp`：检测更新App，后台下载，应用自动安装 -->
 <!-- * `XRouter`：组件化路由框架 -->
-<!-- * `XCache`：缓存 -->
 <!-- * `XCrash`：异常崩溃统一管理 -->
 <!-- * `XTabPage`：Tab+Fragment快速实现 -->
-<!-- * `XWebView`：WebView UI与常见的功能封装 -->
+- [x] `XWebView`：WebView UI与常见的功能封装
+- [x] `XCache`：缓存
 - [x] `XStatusBar`：实现沉浸式状态栏
 - [x] `XSplashView`：闪屏页或者广告页
 - [x] `XToast`：简单的吐司使用
 - [x] `Utils工具类集合`：内置常用工具类
 - [x] `自定义View`：内置常用自定义控件
 
-##使用步骤 
+## 使用步骤
 
 #### Step 1.依赖XFrame
 Gradle 
 ```groovy
 dependencies{
-    compile 'com.youth.xframe:xframe:1.0.1'
+    compile 'com.youth.xframe:xframe:1.0.2'
 }
 ```
 或者引用本地lib
@@ -62,6 +62,7 @@ compile project(':xframe')
 - [Jude95/EasyRecyclerView](https://github.com/Jude95/EasyRecyclerView)
 - [jkyeo/Android-SplashView](https://github.com/jkyeo/Android-SplashView)
 - [czy1121/loadinglayout](https://github.com/czy1121/loadinglayout)
+- [yangfuhai/ASimpleCache](https://github.com/yangfuhai/ASimpleCache)
 
 
 

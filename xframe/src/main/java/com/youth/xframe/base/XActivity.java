@@ -21,6 +21,7 @@ public abstract class XActivity extends AppCompatActivity implements ICallback {
         initData(savedInstanceState);
         initView();
         super.onCreate(savedInstanceState);
+
     }
 
     /**

@@ -64,6 +64,12 @@ public class XAppUtils {
     /**
      * need < uses-permission android:name ="android.permission.GET_TASKS"/>
      * 判断是否前台运行
+     之前，使用该接口需要 android.permission.GET_TASKS
+     即使是自己开发的普通应用，只要声明该权限，即可以使用getRunningTasks接口。
+     但从L开始，这种方式以及废弃。
+     应用要使用该接口必须声明权限android.permission.REAL_GET_TASKS
+     而这个权限是不对三方应用开放的。（在Manifest里申请了也没有作用）
+     系统应用（有系统签名）可以调用该权限。
      */
     public static boolean isRunningForeground() {
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);

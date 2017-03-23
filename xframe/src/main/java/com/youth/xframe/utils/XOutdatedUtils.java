@@ -1,11 +1,16 @@
 package com.youth.xframe.utils;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.view.View;
 
 import com.youth.xframe.XFrame;
@@ -16,6 +21,7 @@ import com.youth.xframe.XFrame;
 public class XOutdatedUtils {
     /**
      * setBackgroundDrawable过时方法处理
+     *
      * @param view
      * @param drawable
      */
@@ -28,25 +34,65 @@ public class XOutdatedUtils {
 
     /**
      * getDrawable过时方法处理
+     *
      * @param id
      * @return
      */
     public static Drawable getDrawable(@DrawableRes int id) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            return XFrame.getContext().getDrawable(id);
-        else
-            return XFrame.getResources().getDrawable(id);
+        return ContextCompat.getDrawable(XFrame.getContext(), id);
+    }
+
+    /**
+     * getDrawable过时方法处理
+     *
+     * @param id 资源id
+     * @param theme 指定主题
+     * @return
+     */
+    public static Drawable getDrawable(@DrawableRes int id,
+                                       @Nullable Resources.Theme theme) {
+        return ResourcesCompat.getDrawable(XFrame.getResources(), id, theme);
     }
 
     /**
      * getColor过时方法处理
+     *
      * @param id
      * @return
      */
     public static int getColor(@ColorRes int id) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            return XFrame.getContext().getColor(id);
-        else
-            return XFrame.getResources().getColor(id);
+        return ContextCompat.getColor(XFrame.getContext(), id);
+    }
+
+    /**
+     * getColor过时方法处理
+     *
+     * @param id 资源id
+     * @param theme 指定主题
+     * @return
+     */
+    public static int getColor(@ColorRes int id, @Nullable Resources.Theme theme) {
+        return ResourcesCompat.getColor(XFrame.getResources(), id, theme);
+    }
+
+    /**
+     * getColorStateList过时方法处理
+     *
+     * @param id 资源id
+     * @return
+     */
+    public static ColorStateList getColorStateList(@ColorRes int id) {
+        return ContextCompat.getColorStateList(XFrame.getContext(), id);
+    }
+
+    /**
+     * getColorStateList过时方法处理
+     *
+     * @param id 资源id
+     * @param theme 指定主题
+     * @return
+     */
+    public static ColorStateList getColorStateList(@ColorRes int id, @Nullable Resources.Theme theme) {
+        return ResourcesCompat.getColorStateList(XFrame.getResources(), id, theme);
     }
 }

@@ -123,7 +123,7 @@ public class XNetworkUtils {
     }
 
     /**
-     * 打开或关闭移动数据
+     * 打开或关闭移动数据(仅限系统应用)
      * <p>需系统应用 需添加权限{@code <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"/>}</p>
      *
      * @param enabled {@code true}: 打开<br>{@code false}: 关闭

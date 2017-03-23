@@ -1,5 +1,6 @@
 package com.youth.xf.ui.demo;
 
+import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -42,11 +43,27 @@ public class XLoadingDialogActivity extends BaseActivity {
                 break;
             case R.id.loading2:
                 Toast.makeText(this,"3秒后自动取消",Toast.LENGTH_SHORT).show();
-                XLoadingDialog.with(this).setCanceled(false).show();
+                XLoadingDialog.with(this)
+                        .setBackgroundColor(Color.parseColor("#aa000000"))
+                        .setMessageColor(Color.WHITE)
+                        .setCanceled(false)
+                        .show();
                 handler.sendEmptyMessageDelayed(1,3000);
                 break;
             case R.id.loading3:
-                XLoadingDialog.with(this).setMessage("我正在加载中...").show();
+                XLoadingDialog.with(this)
+                        .setOrientation(XLoadingDialog.HORIZONTAL)
+                        .setMessage("我正在加载中...")
+                        .show();
+                break;
+            case R.id.loading4:
+                XLoadingDialog.with(this)
+                        .setCanceled(false)
+                        .setOrientation(XLoadingDialog.HORIZONTAL)
+                        .setBackgroundColor(Color.parseColor("#aa000000"))
+                        .setMessageColor(Color.WHITE)
+                        .setMessage("我正在加载中...")
+                        .show();
                 break;
         }
 
