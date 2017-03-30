@@ -33,7 +33,13 @@ import java.util.concurrent.TimeoutException;
  */
 
 public class XNetworkUtils {
+
+    private XNetworkUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
     private static Context context=XFrame.getContext();
+
     public enum NetworkType {
         NETWORK_WIFI,
         NETWORK_4G,

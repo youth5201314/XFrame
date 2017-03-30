@@ -21,6 +21,11 @@ import java.lang.reflect.Method;
  * 屏幕、尺寸、View相关工具类
  */
 public class XDensityUtils {
+
+    private XDensityUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
     /**
      * dp转px
      *

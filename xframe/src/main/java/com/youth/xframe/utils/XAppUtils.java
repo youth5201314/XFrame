@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 
 import com.youth.xframe.XFrame;
@@ -18,8 +19,14 @@ import java.util.List;
 
 /**
  * 应用工具类.
+ *
  */
 public class XAppUtils {
+
+    private XAppUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
     private static Context context=XFrame.getContext();
     /**
      * 读取application 节点  meta-data 信息
@@ -35,11 +42,36 @@ public class XAppUtils {
             return null;
         }
     }
+    /**
+     * 描述: 打开App
+     *
+     * @param packageName 包名
+     */
+    public static void startApp(String packageName) {
+        if (XEmptyUtils.isSpace(packageName)) return;
+            context.startActivity(context.getPackageManager().getLaunchIntentForPackage(packageName));
+    }
+
+    /**
+     * 是否安装了指定包名的App
+     * @param packageName App包名
+     * @return
+     */
+    public static boolean isInstallApp(String packageName) {
+        PackageManager manager = context.getPackageManager();
+        List<PackageInfo> pkgList = manager.getInstalledPackages(0);
+        for (int i = 0; i < pkgList.size(); i++) {
+            PackageInfo info = pkgList.get(i);
+            if (info.packageName.equalsIgnoreCase(packageName))
+                return true;
+        }
+        return false;
+    }
 
     /**
      * 描述：打开并安装文件.
      *
-     * @param file    apk文件路径
+     * @param file apk文件路径
      */
     public static void installApk(File file) {
         Intent intent = new Intent();
@@ -62,8 +94,10 @@ public class XAppUtils {
         context.startActivity(intent);
     }
     /**
-     * need < uses-permission android:name ="android.permission.GET_TASKS"/>
-     * 判断是否前台运行
+     need < uses-permission android:name ="android.permission.GET_TASKS"/>
+
+     判断是否前台运行
+
      之前，使用该接口需要 android.permission.GET_TASKS
      即使是自己开发的普通应用，只要声明该权限，即可以使用getRunningTasks接口。
      但从L开始，这种方式以及废弃。

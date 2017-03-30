@@ -7,6 +7,11 @@ import com.youth.xframe.XFrame;
  *
  */
 public class XPrintUtils {
+
+    private XPrintUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
     private static String tag = XFrame.tag;
     private static boolean log = XFrame.isDebug;
 

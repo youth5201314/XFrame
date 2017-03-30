@@ -19,6 +19,11 @@ import com.youth.xframe.XFrame;
  * 此类主要是用来放一些系统过时方法的处理
  */
 public class XOutdatedUtils {
+
+    private XOutdatedUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
     /**
      * setBackgroundDrawable过时方法处理
      *

@@ -11,6 +11,11 @@ import java.util.Map;
 
 
 public class XPreferencesUtils {
+
+    private XPreferencesUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
     /**
      * 保存在手机里面的文件名
      */

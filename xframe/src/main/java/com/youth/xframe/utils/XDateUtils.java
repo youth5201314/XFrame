@@ -34,6 +34,12 @@ import java.util.Locale;
  */
 public class XDateUtils {
 
+
+    private XDateUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
+
     /**
      * 秒与毫秒的倍数
      */

@@ -15,6 +15,10 @@ import java.util.Map;
  */
 public class XEmptyUtils {
 
+    private XEmptyUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
     /**
      * 判断对象是否为null或长度数量为0
      *

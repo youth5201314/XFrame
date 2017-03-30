@@ -8,6 +8,11 @@ import android.view.View;
  */
 
 public class XViewHolderUtils {
+
+    private XViewHolderUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
     @SuppressWarnings("unchecked")
     public static <T extends View> T get(View convertView, int id) {
 

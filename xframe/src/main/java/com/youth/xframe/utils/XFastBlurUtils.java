@@ -7,6 +7,11 @@ import android.media.ThumbnailUtils;
  * 毛玻璃效果
  */
 public class XFastBlurUtils {
+
+    private XFastBlurUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
     /**
      * 对图片进行毛玻璃化
      * @param sentBitmap 位图

@@ -2,6 +2,7 @@ package com.youth.xf.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -15,6 +16,8 @@ import com.youth.xf.ui.demo.XLogDemoActivity;
 import com.youth.xf.ui.demo.XPermissionDemoActivity;
 import com.youth.xf.ui.demo.XRecyclerViewAdapterActivity;
 import com.youth.xf.ui.demo.XToastActivity;
+import com.youth.xframe.utils.XEncryptUtils;
+import com.youth.xframe.utils.log.XLog;
 import com.youth.xframe.widget.NoScrollListView;
 import com.youth.xframe.widget.XToast;
 

@@ -40,6 +40,10 @@ import java.io.InputStream;
  */
 public class XBitmapUtils {
 
+    private XBitmapUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
     /**
      * 图片压缩处理（使用Options的方法）
      * <p/>

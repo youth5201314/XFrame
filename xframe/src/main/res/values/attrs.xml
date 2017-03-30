@@ -1,27 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="XLoadingView">
-        <attr name="loadingView" format="reference"/>
-        <attr name="errorView" format="reference"/>
-        <attr name="emptyView" format="reference"/>
-        <attr name="noNetworkView" format="reference"/>
+        <attr name="loadingView" format="reference" />
+        <attr name="errorView" format="reference" />
+        <attr name="emptyView" format="reference" />
+        <attr name="noNetworkView" format="reference" />
     </declare-styleable>
-    <declare-styleable name="XRoundButton">
-        <!-- 背景色 -->
-        <attr name="btnSolidColor" format="color"/>
-        <!-- 边框色 -->
-        <attr name="btnStrokeColor" format="color"/>
-        <!-- 边框厚度 -->
-        <attr name="btnStrokeWidth" format="dimension"/>
-        <!-- 边框虚线长度 -->
-        <attr name="btnStrokeDashWidth" format="dimension"/>
-        <!-- 边框虚线间隙 -->
-        <attr name="btnStrokeDashGap" format="dimension"/>
-        <!-- 圆角半径，stadium 表示半径为 min(height,width) / 2-->
-        <attr name="btnCornerRadius" format="dimension">
-            <enum name="stadium" value="-1"/>
-        </attr>
-        <!-- 自动计算按下(pressed)状态颜色的系数, 值为0时不自动计算 -->
-        <attr name="btnPressedRatio" format="float"/>
+
+    <declare-styleable name="XStateButton">
+        <!--text color-->
+        <attr name="normalTextColor" format="color|reference" />
+        <attr name="pressedTextColor" format="color|reference" />
+        <attr name="unableTextColor" format="color|reference" />
+        <!--stroke width and color, dash width, dash gap-->
+        <attr name="strokeDashWidth" format="dimension|reference" />
+        <attr name="strokeDashGap" format="dimension|reference" />
+        <attr name="normalStrokeWidth" format="dimension|reference" />
+        <attr name="pressedStrokeWidth" format="dimension|reference" />
+        <attr name="unableStrokeWidth" format="dimension|reference" />
+        <attr name="normalStrokeColor" format="color|reference" />
+        <attr name="pressedStrokeColor" format="color|reference" />
+        <attr name="unableStrokeColor" format="color|reference" />
+        <!--background color-->
+        <attr name="normalBackgroundColor" format="color|reference" />
+        <attr name="pressedBackgroundColor" format="color|reference" />
+        <attr name="unableBackgroundColor" format="color|reference" />
+        <!--background radius-->
+        <attr name="radius" format="dimension|reference" />
+        <attr name="round" format="boolean|reference" />
+        <!--animation duration-->
+        <attr name="animationDuration" format="integer|reference" />
+
     </declare-styleable>
+
+    <declare-styleable name="XStateImageView">
+        <attr name="normalBackground" format="color|reference" />
+        <attr name="pressedBackground" format="color|reference" />
+        <attr name="unableBackground" format="color|reference" />
+        <!--animation duration-->
+        <attr name="AnimationDuration" format="integer|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="XDrawableTextView">
+        <attr name="leftDrawable" format="reference|color"/>
+        <attr name="rightDrawable" format="reference|color"/>
+        <attr name="topDrawable" format="reference|color"/>
+        <attr name="bottomDrawable" format="reference|color"/>
+
+        <attr name="leftDrawableWidth" format="reference|dimension"/>
+        <attr name="rightDrawableWidth" format="reference|dimension"/>
+        <attr name="topDrawableWidth" format="reference|dimension"/>
+        <attr name="bottomDrawableWidth" format="reference|dimension"/>
+
+        <attr name="leftDrawableHeight" format="reference|dimension"/>
+        <attr name="rightDrawableHeight" format="reference|dimension"/>
+        <attr name="topDrawableHeight" format="reference|dimension"/>
+        <attr name="bottomDrawableHeight" format="reference|dimension"/>
+    </declare-styleable>
+
 </resources>

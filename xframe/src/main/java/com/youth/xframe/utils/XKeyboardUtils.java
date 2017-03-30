@@ -17,6 +17,9 @@ import android.widget.EditText;
  */
 public class XKeyboardUtils {
 
+    private XKeyboardUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
 
     /**
      * 关闭activity中打开的键盘

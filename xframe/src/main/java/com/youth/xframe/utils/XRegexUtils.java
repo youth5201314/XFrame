@@ -7,6 +7,11 @@ import java.util.regex.Pattern;
  * 验证邮箱、手机号、电话号码、身份证号码、银行卡卡号、IP、邮政编码、车牌号等
  */
 public class XRegexUtils {
+
+    private XRegexUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
     /**
      * 手机号码，中间4位星号替换
      *

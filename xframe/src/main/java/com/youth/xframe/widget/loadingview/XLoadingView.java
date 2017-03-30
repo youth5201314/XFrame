@@ -123,8 +123,11 @@ public class XLoadingView extends FrameLayout {
         mResId.put(resId, view);
         if (resId == mErrorViewResId||resId == mNoNetworkViewResId) {
             View v=view.findViewById(R.id.xloading_retry);
-            if (mOnRetryClickListener != null && v != null) {
-                v.setOnClickListener(mOnRetryClickListener);
+            if (mOnRetryClickListener != null) {
+                if (v != null)
+                    v.setOnClickListener(mOnRetryClickListener);
+                else
+                    view.setOnClickListener(mOnRetryClickListener);
             }
         }
         return view;

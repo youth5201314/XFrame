@@ -1,11 +1,11 @@
-package com.youth.xframe.widget;
+package com.youth.xframe.widget.webview;
 
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Message;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.ViewGroup;
 import android.webkit.GeolocationPermissions;
@@ -43,47 +43,51 @@ public class XWebView extends WebView {
     private void init() {
         WebSettings mWebSettings = getSettings();
         mWebSettings.setSupportZoom(true);
-        mWebSettings.setLoadWithOverviewMode(true);
+        // 网页内容的宽度是否可大于WebView控件的宽度
+        mWebSettings.setLoadWithOverviewMode(false);
+        // 设置此属性，可任意比例缩放。
         mWebSettings.setUseWideViewPort(true);
-        mWebSettings.setDefaultTextEncodingName("utf-8");
-        mWebSettings.setLoadsImagesAutomatically(true);
-
+        // 排版适应屏幕
+        mWebSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
         //调用JS方法.安卓版本大于17,加上注解 @JavascriptInterface
         mWebSettings.setJavaScriptEnabled(true);
+        // WebView是否支持多个窗口。
         mWebSettings.setSupportMultipleWindows(true);
+        //html中的_bank标签就是新建窗口打开，有时会打不开，需要添加下面的代码并复写 WebChromeClient的onCreateWindow方法
+        mWebSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        // webview从5.0开始默认不允许混合模式,https中不能加载http资源,需要设置开启。
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mWebSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
+        //自动加载图片
+        if(Build.VERSION.SDK_INT >= 19) {
+            mWebSettings.setLoadsImagesAutomatically(true);
+        } else {
+            mWebSettings.setLoadsImagesAutomatically(false);
+        }
         //缓存数据
         saveData(mWebSettings);
-        newWin(mWebSettings);
         setWebChromeClient(webChromeClient);
         setWebViewClient(webViewClient);
     }
 
-    /**
-     * 多窗口的问题
-     */
-    private void newWin(WebSettings mWebSettings) {
-        //html中的_bank标签就是新建窗口打开，有时会打不开，需要加以下
-        //然后 复写 WebChromeClient的onCreateWindow方法
-        mWebSettings.setSupportMultipleWindows(false);
-        mWebSettings.setJavaScriptCanOpenWindowsAutomatically(true);
-    }
 
     /**
      * HTML5数据存储
      */
     private void saveData(WebSettings mWebSettings) {
-        //有时候网页需要自己保存一些关键数据,Android WebView 需要自己设置
+        // 设置缓存模式
         if (XNetworkUtils.ping()) {
             mWebSettings.setCacheMode(WebSettings.LOAD_DEFAULT);//根据cache-control决定是否从网络上取数据。
         } else {
             mWebSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);//没网，则从本地获取，即离线加载
         }
-
+        // 使用localStorage则必须打开
         mWebSettings.setDomStorageEnabled(true);
         mWebSettings.setDatabaseEnabled(true);
+        // 启动应用缓存
         mWebSettings.setAppCacheEnabled(true);
-        String appCachePath = mContext.getCacheDir().getAbsolutePath();
-        mWebSettings.setAppCachePath(appCachePath);
+        mWebSettings.setAppCachePath(mContext.getCacheDir().getAbsolutePath());
     }
 
     WebViewClient webViewClient = new WebViewClient() {
@@ -95,6 +99,15 @@ public class XWebView extends WebView {
             view.loadUrl(url);
             return true;
         }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            //在网络情况较差的情况下,等页面finish后再发起图片加载,减少loading时间
+            if(!getSettings().getLoadsImagesAutomatically()) {
+                getSettings().setLoadsImagesAutomatically(true);
+            }
+        }
+
     };
 
     WebChromeClient webChromeClient = new WebChromeClient() {
