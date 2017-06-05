@@ -1,7 +1,5 @@
 package com.youth.xframe.utils;
 
-import android.annotation.SuppressLint;
-
 import com.youth.xframe.entity.DateDifference;
 
 import java.text.ParseException;
@@ -308,7 +306,7 @@ public class XDateUtils {
         difference.setSecond(millis/SEC);
         difference.setMinute(millis/MIN);
         difference.setHour(millis/HOUR);
-        difference.setHour(millis/DAY);
+        difference.setDay(millis/DAY);
         return difference;
     }
 
