@@ -68,4 +68,5 @@ public class XEmptyUtils {
         return (s == null || s.trim().length() == 0);
     }
 
+
 }

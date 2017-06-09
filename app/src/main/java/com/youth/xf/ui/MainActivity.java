@@ -1,5 +1,6 @@
 package com.youth.xf.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -12,6 +13,8 @@ import com.youth.banner.Banner;
 import com.youth.xf.BaseActivity;
 import com.youth.xf.R;
 import com.youth.xf.ui.adapter.MyFragmentPagerAdapter;
+import com.youth.xframe.XFrame;
+import com.youth.xframe.utils.log.XLog;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -4,6 +4,7 @@ package com.youth.xframe.utils.log;
 import android.text.TextUtils;
 
 import com.youth.xframe.XFrame;
+import com.youth.xframe.utils.XPrintUtils;
 
 
 public class XLogConfig {

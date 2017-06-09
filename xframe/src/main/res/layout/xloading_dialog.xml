@@ -5,7 +5,7 @@
     android:layout_gravity="center"
     android:padding="@dimen/XFrame_spacing"
     android:background="@color/XFrame_white"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
 
     <ProgressBar

@@ -22,7 +22,6 @@
 - [x] `XLoadingDialog`：简单实现加载等待对话框
 - [x] `XPermission`：简化Android动态权限管理的操作
 - [x] `XRecyclerViewAdapter`：一个用于RecyclerView Adapter的开发库，包含添加Header，Footer，加载更多,加载失败，加载到底和支持多种布局
-- [x] `XWebView`：WebView UI与常见的功能封装
 - [x] `XCache`：缓存普通的字符串、Bitmap、Drawable、Serializable的java对象、byte数据
 - [x] `XStatusBar`：实现沉浸式状态栏
 - [x] `XToast`：简单的吐司使用
@@ -35,7 +34,7 @@
 Gradle 
 ```groovy
 dependencies{
-    compile 'com.youth.xframe:xframe:1.0.2'
+    compile 'com.youth.xframe:xframe:1.0.6'
 }
 ```
 或者引用本地lib

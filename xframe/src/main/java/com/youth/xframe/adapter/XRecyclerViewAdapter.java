@@ -1,5 +1,6 @@
 package com.youth.xframe.adapter;
 
+import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
@@ -28,6 +29,7 @@ public abstract class XRecyclerViewAdapter<T> extends BaseRecyclerViewAdapter<T,
     private static final int TYPE_LOAD_MORE = 0x3;
     private static final int TYPE_NO_VIEW = 0x4;
     private RecyclerView mRecyclerView;
+    private Context mContext;
     private View mLoadMoreView;
     private View mLoadMoreFailedView;
     private View mNoMoreView;
@@ -47,7 +49,16 @@ public abstract class XRecyclerViewAdapter<T> extends BaseRecyclerViewAdapter<T,
         this.mRecyclerView = mRecyclerView;
         this.dataLists = dataLists;
         this.layoutId = layoutId;
-        this.inflater = LayoutInflater.from(mRecyclerView.getContext());
+        this.mContext=mRecyclerView.getContext();
+        this.inflater = LayoutInflater.from(mContext);
+    }
+
+    public RecyclerView getRecyclerView() {
+        return mRecyclerView;
+    }
+
+    public Context getContext() {
+        return mContext;
     }
 
     @Override

@@ -49,7 +49,7 @@ public class XRecyclerViewAdapterActivity extends BaseActivity implements SwipeR
     @Override
     public void initData(Bundle savedInstanceState) {
         datas = new ArrayList<>();
-        for (int i = 1; i <= 15; i++) {
+        for (int i = 1; i <= 5; i++) {
             datas.add("第 " + i + " 个");
         }
     }

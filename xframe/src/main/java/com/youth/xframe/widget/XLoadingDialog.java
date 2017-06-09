@@ -32,45 +32,45 @@ public class XLoadingDialog extends Dialog {
 
     public XLoadingDialog(Context context) {
         super(context, R.style.loading_dialog);
-        this.context=context;
+        this.context = context;
         drawable = new XColorDrawable();
         setContentView(R.layout.xloading_dialog);
         loadingMessage = (TextView) findViewById(R.id.xframe_loading_message);
         progressBar = (ProgressBar) findViewById(R.id.xframe_loading_progressbar);
         loadingView = (LinearLayout) findViewById(R.id.xframe_loading_view);
-        loadingMessage.setPadding(0,15,0,0);
+        loadingMessage.setPadding(15, 0, 0, 0);
         drawable.setColor(Color.WHITE);
-        XOutdatedUtils.setBackground(loadingView,drawable);
+        XOutdatedUtils.setBackground(loadingView, drawable);
     }
 
-    public static XLoadingDialog with(Context context){
-        if (dialog==null){
-            dialog=new XLoadingDialog(context);
+    public static XLoadingDialog with(Context context) {
+        if (dialog == null) {
+            dialog = new XLoadingDialog(context);
         }
         return dialog;
     }
 
-    public XLoadingDialog setOrientation(int orientation){
+    public XLoadingDialog setOrientation(int orientation) {
         loadingView.setOrientation(orientation);
-        if (orientation==HORIZONTAL){
-           loadingMessage.setPadding(15,0,0,0);
-        }else{
-            loadingMessage.setPadding(0,15,0,0);
+        if (orientation == HORIZONTAL) {
+            loadingMessage.setPadding(15, 0, 0, 0);
+        } else {
+            loadingMessage.setPadding(0, 15, 0, 0);
         }
         return dialog;
     }
 
-    public XLoadingDialog setBackgroundColor(@ColorInt int color){
+    public XLoadingDialog setBackgroundColor(@ColorInt int color) {
         drawable.setColor(color);
-        XOutdatedUtils.setBackground(loadingView,drawable);
+        XOutdatedUtils.setBackground(loadingView, drawable);
         return dialog;
     }
 
     @Override
     public void dismiss() {
         super.dismiss();
-        if (dialog!=null)
-            dialog=null;
+        if (dialog != null)
+            dialog = null;
     }
 
     public XLoadingDialog setCanceled(boolean cancel) {

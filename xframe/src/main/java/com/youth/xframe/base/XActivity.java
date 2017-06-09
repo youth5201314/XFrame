@@ -13,15 +13,13 @@ public abstract class XActivity extends AppCompatActivity implements ICallback {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        super.onCreate(savedInstanceState);
         XActivityStack.getInstance().addActivity(this);
         if (getLayoutId()>0) {
             setContentView(getLayoutId());
         }
         initData(savedInstanceState);
         initView();
-        super.onCreate(savedInstanceState);
-
     }
 
     /**

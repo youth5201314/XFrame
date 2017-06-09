@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 
+import com.youth.xframe.XFrame;
 import com.youth.xframe.utils.XBitmapUtils;
 
 import org.json.JSONArray;

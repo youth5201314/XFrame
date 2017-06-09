@@ -7,28 +7,29 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 
 /**
-    日期操作工具类.
-        SimpleDateFormat函数语法：
-         G 年代标志符
-         y 年
-         M 月
-         d 日
-         h 时 在上午或下午 (1~12)
-         H 时 在一天中 (0~23)
-         m 分
-         s 秒
-         S 毫秒
-         E 星期
-         D 一年中的第几天
-         F 一月中第几个星期几
-         w 一年中第几个星期
-         W 一月中第几个星期
-         a 上午 / 下午 标记符
-         k 时 在一天中 (1~24)
-         K 时 在上午或下午 (0~11)
-         z 时区
+ * 日期操作工具类.
+ * SimpleDateFormat函数语法：
+ * G 年代标志符
+ * y 年
+ * M 月
+ * d 日
+ * h 时 在上午或下午 (1~12)
+ * H 时 在一天中 (0~23)
+ * m 分
+ * s 秒
+ * S 毫秒
+ * E 星期
+ * D 一年中的第几天
+ * F 一月中第几个星期几
+ * w 一年中第几个星期
+ * W 一月中第几个星期
+ * a 上午 / 下午 标记符
+ * k 时 在一天中 (1~24)
+ * K 时 在上午或下午 (0~11)
+ * z 时区
  */
 public class XDateUtils {
 
@@ -41,39 +42,40 @@ public class XDateUtils {
     /**
      * 秒与毫秒的倍数
      */
-    public static final int SEC  = 1000;
+    public static final long SEC = 1000;
     /**
      * 分与毫秒的倍数
      */
-    public static final int MIN  = SEC*60;
+    public static final long MIN = SEC * 60;
     /**
      * 时与毫秒的倍数
      */
-    public static final int HOUR = MIN*60;
+    public static final long HOUR = MIN * 60;
     /**
      * 天与毫秒的倍数
      */
-    public static final int DAY  = HOUR*24;
+    public static final long DAY = HOUR * 24;
 
     /**
      * 周与毫秒的倍数
      */
-    public static final int WEEK  = DAY*7;
+    public static final long WEEK = DAY * 7;
 
     /**
      * 月与毫秒的倍数
      */
-    public static final int MONTH  = DAY*30;
+    public static final long MONTH = DAY * 30;
 
     /**
      * 年与毫秒的倍数
      */
-    public static final int YEAR  = DAY*365;
+    public static final long YEAR = DAY * 365;
 
     /**
      * 默认格式
      */
     public static final String DEFAULT_PATTERN = "yyyy-MM-dd HH:mm:ss";
+    public static final String PATTERN_UTC = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
 
     /**
      * SimpleDateFormat不是线程安全的，以下是线程安全实例化操作
@@ -88,8 +90,7 @@ public class XDateUtils {
     /**
      * 获取SimpleDateFormat实例
      *
-     * @param pattern
-     *            模式串
+     * @param pattern 模式串
      * @return
      */
     public static SimpleDateFormat getSimpleDateFormat(String pattern) {
@@ -110,8 +111,7 @@ public class XDateUtils {
     /**
      * 获取表示当前时间的字符串
      *
-     * @param pattern
-     *            模式串
+     * @param pattern 模式串
      * @return
      */
     public static String getCurrentDate(String pattern) {
@@ -121,8 +121,7 @@ public class XDateUtils {
     /**
      * 日期时间格式化
      *
-     * @param date
-     *            Date
+     * @param date Date
      * @return
      */
     public static String format(Date date) {
@@ -133,16 +132,15 @@ public class XDateUtils {
     /**
      * 日期时间格式化
      *
-     * @param date
-     *            Date
-     * @param pattern
-     *            模式串
+     * @param date    Date
+     * @param pattern 模式串
      * @return
      */
     public static String format(Date date, String pattern) {
         SimpleDateFormat format = getSimpleDateFormat(pattern);
         return format.format(date);
     }
+
     /**
      * 将时间戳转为时间字符串
      * <p>格式为yyyy-MM-dd HH:mm:ss</p>
@@ -221,6 +219,19 @@ public class XDateUtils {
     }
 
     /**
+     * 将时间字符串转为Date类型
+     * <p>time格式为UTC</p>
+     *
+     * @param time 时间字符串
+     * @return
+     */
+    public static Date utcString2Date(String time) throws ParseException {
+        SimpleDateFormat format = getSimpleDateFormat(PATTERN_UTC);
+        format.setTimeZone(TimeZone.getTimeZone("GMT"));
+        return format.parse(time);
+    }
+
+    /**
      * 将Date类型转为时间字符串
      * <p>格式为yyyy-MM-dd HH:mm:ss</p>
      *
@@ -266,42 +277,46 @@ public class XDateUtils {
 
     /**
      * 获取与当前时间的时间差
+     *
      * @param date 需要计算的时间，应小于当前时间
      * @return DateDifference实体类，内封装有获取相差的毫秒、秒、分钟、小时、天的方法
      */
     public static DateDifference getTwoDataDifference(Date date) {
-        return getTwoDataDifference(new Date() ,date);
+        return getTwoDataDifference(new Date(), date);
     }
 
     /**
      * 获取与当前时间的时间差
+     *
      * @param str 需要计算的时间，应小于当前时间
      * @return DateDifference实体类，内封装有获取相差的毫秒、秒、分钟、小时、天的方法
      */
     public static DateDifference getTwoDataDifference(String str) {
-        return getTwoDataDifference(new Date() ,string2Date(str));
+        return getTwoDataDifference(new Date(), string2Date(str));
     }
 
 
     /**
      * 得到二个日期间的时间差
+     *
      * @param str1 两个时间中较大的那个
      * @param str2 两个时间中较小的那个
      * @return DateDifference实体类，内封装有获取相差的毫秒、秒、分钟、小时、天的方法
      */
     public static DateDifference getTwoDataDifference(String str1, String str2) {
-        return getTwoDataDifference(string2Date(str1),string2Date(str2));
+        return getTwoDataDifference(string2Date(str1), string2Date(str2));
     }
 
     /**
      * 得到二个日期间的时间差
+     *
      * @param date1 两个时间中较大的那个
      * @param date2 两个时间中较小的那个
      * @return DateDifference实体类，内封装有获取相差的毫秒、秒、分钟、小时、天的方法
      */
     public static DateDifference getTwoDataDifference(Date date1, Date date2) {
-        DateDifference difference=new DateDifference();
-        long millis=date1.getTime() - date2.getTime();
+        DateDifference difference = new DateDifference();
+        long millis = date1.getTime() - date2.getTime();
         difference.setMillisecond(millis);
         difference.setSecond(millis/SEC);
         difference.setMinute(millis/MIN);
@@ -658,8 +673,8 @@ public class XDateUtils {
         return CHINESE_ZODIAC[year % 12];
     }
 
-    private static final String[] ZODIAC       = {"水瓶座", "双鱼座", "白羊座", "金牛座", "双子座", "巨蟹座", "狮子座", "处女座", "天秤座", "天蝎座", "射手座", "魔羯座"};
-    private static final int[]    ZODIAC_FLAGS = {20, 19, 21, 21, 21, 22, 23, 23, 23, 24, 23, 22};
+    private static final String[] ZODIAC = {"水瓶座", "双鱼座", "白羊座", "金牛座", "双子座", "巨蟹座", "狮子座", "处女座", "天秤座", "天蝎座", "射手座", "魔羯座"};
+    private static final int[] ZODIAC_FLAGS = {20, 19, 21, 21, 21, 22, 23, 23, 23, 24, 23, 22};
 
     /**
      * 获取星座

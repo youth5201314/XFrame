@@ -16,7 +16,7 @@ public class XFormatTimeUtils {
      * @param millis  开始时间戳
      * @return
      */
-    public String getTimeSpanByNow1(long millis) {
+    public static String getTimeSpanByNow1(long millis) {
         long now = System.currentTimeMillis();
         long span = now - millis;
         if (span < 1000) {
