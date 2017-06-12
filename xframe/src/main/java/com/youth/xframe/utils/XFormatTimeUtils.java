@@ -9,7 +9,6 @@ public class XFormatTimeUtils {
     private XFormatTimeUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
-
     /**
      * 格式化友好的时间差显示方式
      *

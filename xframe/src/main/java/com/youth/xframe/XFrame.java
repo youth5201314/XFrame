@@ -9,12 +9,15 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.StringRes;
 import android.util.DisplayMetrics;
 import android.widget.ImageView;
 
 import com.youth.xframe.base.XImageLoader;
 import com.youth.xframe.utils.XDensityUtils;
 import com.youth.xframe.utils.XOutdatedUtils;
+import com.youth.xframe.utils.http.IHttpEngine;
+import com.youth.xframe.utils.http.XHttp;
 import com.youth.xframe.utils.log.XLogConfig;
 import com.youth.xframe.utils.log.XLog;
 import com.youth.xframe.widget.loadingview.XLoadingView;
@@ -48,6 +51,10 @@ public class XFrame {
         return XLoadingView.init();
     }
 
+    public static void initXHttp(IHttpEngine httpEngine) {
+        XHttp.init(httpEngine);
+    }
+
     public static void setImageLoader(XImageLoader imageLoader) {
         XFrame.imageLoader=imageLoader;
     }
@@ -71,6 +78,10 @@ public class XFrame {
 
     public static Resources getResources() {
         return XFrame.getContext().getResources();
+    }
+
+    public static String getString(@StringRes int id) {
+        return getResources().getString(id);
     }
 
     public static Resources.Theme getTheme() {

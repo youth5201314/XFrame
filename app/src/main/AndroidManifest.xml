@@ -32,7 +32,8 @@
         <activity android:name=".ui.demo.XToastActivity" />
         <activity android:name=".ui.demo.XLoadingViewActivity" />
         <activity android:name=".ui.demo.XLoadingViewActivity2" />
-        <activity android:name=".ui.demo.XCacheActivity"></activity>
+        <activity android:name=".ui.demo.XCacheActivity" />
+        <activity android:name=".ui.demo.XHttpActivity"></activity>
     </application>
 
 </manifest>

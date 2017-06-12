@@ -16,15 +16,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':xframe')
-    compile 'com.android.support:design:25.2.0'
+    compile 'com.android.support:design:25.3.1'
     compile 'com.youth.banner:banner:+'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'cat.ereza:customactivityoncrash:1.5.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
+    //网络框架，目前就列举这四种常用的
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.squareup.okhttp3:okhttp:3.8.0'
+    compile 'com.loopj.android:android-async-http:1.4.9'
+
+    compile 'com.alibaba:fastjson:1.1.57.android'
 }

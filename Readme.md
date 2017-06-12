@@ -15,8 +15,9 @@
 
 ## 特性
 
-**XFrame**主要有这些功能：(打钩的标示第一版本已完成，其他还在整理中)
+**XFrame**主要有这些功能：
 
+- [x] `XHttp`：Http网络请求隔离框架，解决高耦合！一行代码随意切换第三方网络请求库，可自动解析json，告别切换网络库繁琐操作
 - [x] `XLog`：可输出漂亮容易查看的日志，支持Json、Xml、Map、List等格式输出，可全局配置
 - [x] `XLoadingView`：简单实用的页面状态统一管理 ，加载中、无网络、无数据、出错等状态的随意切换
 - [x] `XLoadingDialog`：简单实现加载等待对话框
@@ -59,7 +60,12 @@ compile project(':xframe')
 - [yangfuhai/ASimpleCache](https://github.com/yangfuhai/ASimpleCache)
 
 
+## 更新说明
 
+#### v1.1.0
+    banner 优化更新
+ * 增加Http网络隔离框架
+ * 修改优化了一些bug
 
 
 

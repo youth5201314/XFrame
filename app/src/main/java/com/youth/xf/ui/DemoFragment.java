@@ -10,6 +10,7 @@ import android.widget.ListView;
 import com.youth.xf.BaseFragment;
 import com.youth.xf.R;
 import com.youth.xf.ui.demo.XCacheActivity;
+import com.youth.xf.ui.demo.XHttpActivity;
 import com.youth.xf.ui.demo.XLoadingDialogActivity;
 import com.youth.xf.ui.demo.XLoadingViewActivity;
 import com.youth.xf.ui.demo.XLogDemoActivity;
@@ -67,6 +68,8 @@ public class DemoFragment extends BaseFragment implements AdapterView.OnItemClic
             case 6:
                 intent.setClass(getActivity(),XCacheActivity.class);
                 break;
+            case 7:
+                intent.setClass(getActivity(), XHttpActivity.class);
         }
         intent.putExtra("title",demo[position]);
         startActivity(intent);
