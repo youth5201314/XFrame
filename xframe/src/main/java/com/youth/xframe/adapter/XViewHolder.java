@@ -22,6 +22,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.youth.xframe.XFrame;
+import com.youth.xframe.utils.imageload.XImage;
 
 
 public class XViewHolder extends RecyclerView.ViewHolder {
@@ -80,6 +81,24 @@ public class XViewHolder extends RecyclerView.ViewHolder {
     public XViewHolder setText(@IdRes int viewId, String text) {
         TextView tv = getView(viewId);
         tv.setText(text);
+        return this;
+    }
+
+    public XViewHolder setImageUrl(@IdRes int viewId, Object imageUrl) {
+        ImageView view = getView(viewId);
+        XImage.getInstance().load(view,imageUrl);
+        return this;
+    }
+
+    public XViewHolder setImageUrl(@IdRes int viewId, Object imageUrl, int defaultImage) {
+        ImageView view = getView(viewId);
+        XImage.getInstance().load(view,imageUrl,defaultImage);
+        return this;
+    }
+
+    public XViewHolder setImageUrl(@IdRes int viewId, Object imageUrl, Object transformation) {
+        ImageView view = getView(viewId);
+        XImage.getInstance().load(view,imageUrl,transformation);
         return this;
     }
 

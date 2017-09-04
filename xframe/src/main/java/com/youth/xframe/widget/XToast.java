@@ -21,7 +21,7 @@ import com.youth.xframe.XFrame;
 import com.youth.xframe.utils.XOutdatedUtils;
 
 /**
- * Toast
+ * 自定义Toast
  */
 public class XToast {
     private static final @ColorInt int DEFAULT_TEXT_COLOR = Color.parseColor("#FFFFFF");
@@ -35,7 +35,14 @@ public class XToast {
     private static final String TOAST_TYPEFACE = "sans-serif-condensed";
 
     private static Context context= XFrame.getContext();
-    
+
+    /** 上次显示的内容 */
+    private static String oldMsg ;
+    /** 上次时间 */
+    private static long oldTime = 0 ;
+    /** Toast对象 */
+    private static Toast mToast = null ;
+
     private XToast() {
     }
 
@@ -48,7 +55,7 @@ public class XToast {
     }
 
     public static Toast normal( @NonNull String message, int duration) {
-        return normal( message, duration);
+        return normal( message, duration,null);
     }
 
     public static Toast normal( @NonNull String message, int duration,
@@ -151,7 +158,6 @@ public class XToast {
      */
     public static Toast custom( @NonNull String message, Drawable icon,
                                             @ColorInt int textColor, @ColorInt int tintColor, int duration) {
-        Toast currentToast = new Toast(context);
         View toastLayout = LayoutInflater.from(context).inflate(R.layout.xtoast_view, null);
         ImageView toastIcon = (ImageView) toastLayout.findViewById(R.id.xtoast_icon);
         TextView toastText = (TextView) toastLayout.findViewById(R.id.xtoast_text);
@@ -170,9 +176,26 @@ public class XToast {
         toastText.setText(message);
         toastText.setTypeface(Typeface.create(TOAST_TYPEFACE, Typeface.NORMAL));
 
-        currentToast.setView(toastLayout);
-        currentToast.setDuration(duration);
-        currentToast.show();
-        return currentToast;
+        if(mToast == null) {
+            mToast = new Toast(context);
+            mToast.setView(toastLayout);
+            mToast.setDuration(duration);
+            mToast.show();
+            oldTime = System.currentTimeMillis() ;
+        }else{
+            if (message.equals(oldMsg)){
+                if(System.currentTimeMillis() - oldTime > Toast.LENGTH_SHORT){
+                    mToast.show();
+                }
+            }else{
+                oldMsg=message;
+                mToast.setView(toastLayout);
+                mToast.setDuration(duration);
+                mToast.show();
+            }
+        }
+
+        oldTime = System.currentTimeMillis() ;
+        return mToast;
     }
 }

@@ -39,6 +39,13 @@ public class DividerDecoration extends RecyclerView.ItemDecoration{
         this.mDrawHeaderFooter = mDrawHeaderFooter;
     }
 
+    /**
+     * 返回条目之间的间隔，例如我们想仿照ListView一样添加分割线，那么就需要设置outRect的下边距。
+     * @param outRect
+     * @param view
+     * @param parent
+     * @param state
+     */
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         int position = parent.getChildAdapterPosition(view);

@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.youth.xf.BaseActivity;
 import com.youth.xf.R;
 import com.youth.xframe.widget.XLoadingDialog;
+import com.youth.xframe.widget.XToast;
 
 public class XLoadingDialogActivity extends BaseActivity {
     private Handler handler=new Handler(){
@@ -42,7 +43,7 @@ public class XLoadingDialogActivity extends BaseActivity {
                 XLoadingDialog.with(this).show();
                 break;
             case R.id.loading2:
-                Toast.makeText(this,"3秒后自动取消",Toast.LENGTH_SHORT).show();
+                XToast.info("3秒后自动取消");
                 XLoadingDialog.with(this)
                         .setBackgroundColor(Color.parseColor("#aa000000"))
                         .setMessageColor(Color.WHITE)
@@ -52,18 +53,20 @@ public class XLoadingDialogActivity extends BaseActivity {
                 break;
             case R.id.loading3:
                 XLoadingDialog.with(this)
-                        .setOrientation(XLoadingDialog.HORIZONTAL)
-                        .setMessage("我正在加载中...")
+                        .setOrientation(XLoadingDialog.VERTICAL)
+                        .setMessage("加载中...")
                         .show();
                 break;
             case R.id.loading4:
+                XToast.info("3秒后自动取消");
                 XLoadingDialog.with(this)
                         .setCanceled(false)
-                        .setOrientation(XLoadingDialog.HORIZONTAL)
+                        .setOrientation(XLoadingDialog.VERTICAL)
                         .setBackgroundColor(Color.parseColor("#aa000000"))
                         .setMessageColor(Color.WHITE)
-                        .setMessage("我正在加载中...")
+                        .setMessage("加载中...")
                         .show();
+                handler.sendEmptyMessageDelayed(1,3000);
                 break;
         }
 

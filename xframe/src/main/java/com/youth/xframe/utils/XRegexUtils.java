@@ -208,11 +208,12 @@ public class XRegexUtils {
     /**
      * 验证URL地址
      *
-     * @param url 格式：http://blog.csdn.net:80/xyang81/article/details/7705960? 或 http://www.csdn.net:80
+     * IP地址、去掉前后汉字、带参数
+     * @param url
      * @return 验证成功返回true，验证失败返回false
      */
     public static boolean checkURL(String url) {
-        String regex = "(https?://(w{3}\\.)?)?\\w+\\.\\w+(\\.[a-zA-Z]+)*(:\\d{1,5})?(/\\w*)*(\\??(.+=.*)?(&.+=.*)?)?";
+        String regex = "(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]";
         return Pattern.matches(regex, url);
     }
 

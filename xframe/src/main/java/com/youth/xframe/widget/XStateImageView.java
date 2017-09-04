@@ -10,6 +10,16 @@ import android.util.AttributeSet;
 
 import com.youth.xframe.R;
 
+/**
+ 根据用户点击状态设置不同的图片
+
+ //设置ImageView的背景
+ app:normalBackground=""
+ app:pressedBackground=""
+ app:unableBackground=""
+ //设置背景切换动画时长
+ app:animDuration="200"
+ */
 public class XStateImageView extends AppCompatImageView {
     private Drawable mNormalDrawable;
 
@@ -54,7 +64,7 @@ public class XStateImageView extends AppCompatImageView {
         mUnableDrawable = a.getDrawable(R.styleable.XStateImageView_unableBackground);
         setStateBackground(mNormalDrawable, mPressedDrawable, mUnableDrawable);
 
-        mDuration = a.getInteger(R.styleable.XStateImageView_AnimationDuration, mDuration);
+        mDuration = a.getInteger(R.styleable.XStateImageView_animDuration, mDuration);
         setAnimationDuration(mDuration);
         a.recycle();
     }

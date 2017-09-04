@@ -35,7 +35,7 @@
 Gradle 
 ```groovy
 dependencies{
-    compile 'com.youth.xframe:xframe:1.1.0'
+    compile 'com.youth.xframe:xframe:1.1.2'
 }
 ```
 或者引用本地lib
@@ -62,8 +62,20 @@ compile project(':xframe')
 
 ## 更新说明
 
+#### v1.1.2
+   XFrame 优化更新
+ * XImage支持使用第三方框架来配置加载不同形状图片
+ * XRecyclerViewAdapter修改数据操作中移动，交换，删除，替换等列表更新bug
+ * XToast解决重复创建显示问题
+ * 修改优化了一些bug
+
+#### v1.1.1
+   XFrame 优化更新
+ * 增加XImage第三方图片加载框架隔离框架
+ * 修改优化了一些bug
+
 #### v1.1.0
-    banner 优化更新
+   XFrame 优化更新
  * 增加Http网络隔离框架
  * 修改优化了一些bug
 

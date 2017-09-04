@@ -38,7 +38,7 @@
         <attr name="pressedBackground" format="color|reference" />
         <attr name="unableBackground" format="color|reference" />
         <!--animation duration-->
-        <attr name="AnimationDuration" format="integer|reference" />
+        <attr name="animDuration" format="integer|reference" />
     </declare-styleable>
 
     <declare-styleable name="XDrawableTextView">

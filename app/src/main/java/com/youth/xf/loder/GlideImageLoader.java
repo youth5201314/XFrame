@@ -5,17 +5,46 @@ import android.net.Uri;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.youth.banner.loader.ImageLoader;
+import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
+import com.youth.xf.view.GlideCircleTransform;
 import com.youth.xframe.XFrame;
+import com.youth.xframe.utils.imageload.ImageLoader;
 
 
-public class GlideImageLoader extends ImageLoader {
+public class GlideImageLoader implements ImageLoader {
+
+    private Context mContext;
+
+    public static GlideCircleTransform circleTransform;
+
+    public GlideImageLoader(Context context) {
+        this.mContext=context;
+        circleTransform=new GlideCircleTransform(mContext);
+    }
+
     @Override
-    public void displayImage(Context context, Object path, ImageView imageView) {
-        //具体方法内容自己去选择，次方法是为了减少banner过多的依赖第三方包，所以将这个权限开放给使用者去选择
-        Glide.with(XFrame.getContext())
-                .load(path)
+    public void load(ImageView imageView, Object imageUrl) {
+        Glide.with(mContext)
+                .load(imageUrl)
                 .crossFade()
+                .into(imageView);
+    }
+
+    @Override
+    public void load(ImageView imageView, Object imageUrl, int defaultImage) {
+        Glide.with(mContext)
+                .load(imageUrl)
+                .crossFade()
+                .placeholder(defaultImage)
+                .into(imageView);
+    }
+
+    @Override
+    public void load(ImageView imageView, Object imageUrl, Object transformation) {
+        Glide.with(mContext)
+                .load(imageUrl)
+                .crossFade()
+                .transform((BitmapTransformation) transformation)
                 .into(imageView);
     }
 }

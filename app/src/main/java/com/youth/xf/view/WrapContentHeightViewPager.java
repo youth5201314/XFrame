@@ -6,7 +6,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-
+/**
+ * ViewPager设置wrapContent显示全屏解决方案
+ */
 public class WrapContentHeightViewPager extends ViewPager {
     public WrapContentHeightViewPager(Context context) {
         super(context);

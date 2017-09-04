@@ -6,18 +6,18 @@ import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.util.DisplayMetrics;
 import android.widget.ImageView;
 
-import com.youth.xframe.base.XImageLoader;
+import com.youth.xframe.utils.imageload.ImageLoader;
 import com.youth.xframe.utils.XDensityUtils;
 import com.youth.xframe.utils.XOutdatedUtils;
 import com.youth.xframe.utils.http.IHttpEngine;
 import com.youth.xframe.utils.http.XHttp;
+import com.youth.xframe.utils.imageload.XImage;
 import com.youth.xframe.utils.log.XLogConfig;
 import com.youth.xframe.utils.log.XLog;
 import com.youth.xframe.widget.loadingview.XLoadingView;
@@ -32,10 +32,6 @@ public class XFrame {
     public static String tag = "XFrame";
     public static boolean isDebug = true;
 
-    private static XImageLoader imageLoader;
-
-    public XFrame() {
-    }
 
     public static void init(Context context) {
         XFrame.context = context;
@@ -55,16 +51,8 @@ public class XFrame {
         XHttp.init(httpEngine);
     }
 
-    public static void setImageLoader(XImageLoader imageLoader) {
-        XFrame.imageLoader=imageLoader;
-    }
-
-    public static void load(ImageView imageView, Object imageUrl) {
-        if (XFrame.imageLoader==null)
-            throw new NullPointerException("Call XFrame.setImageLoader(XImageLoader imageLoader) within your Application onCreate() method." +
-                    "Or extends XApplication");
-        else
-            XFrame.imageLoader.load(XFrame.context,imageView,imageUrl);
+    public static void initXImageLoader(ImageLoader loader) {
+        XImage.init(loader);
     }
 
     public static Context getContext() {

@@ -54,8 +54,7 @@ public abstract class BaseRecyclerViewAdapter<T, VH extends RecyclerView.ViewHol
      * @param data
      */
     public void add(T data) {
-        dataLists.add(data);
-        notifyDataSetChanged();
+        add(dataLists.indexOf(data),data);
     }
     /**
      * 在指定位置添加数据条目
@@ -65,7 +64,7 @@ public abstract class BaseRecyclerViewAdapter<T, VH extends RecyclerView.ViewHol
      */
     public void add(int position, T data) {
         dataLists.add(position,data);
-        notifyDataSetChanged();
+        notifyItemInserted(position);
     }
     /**
      * 添加数据条目集合
@@ -93,7 +92,7 @@ public abstract class BaseRecyclerViewAdapter<T, VH extends RecyclerView.ViewHol
      */
     public void remove(int position) {
         dataLists.remove(position);
-        notifyDataSetChanged();
+        notifyItemRemoved(position);
     }
     /**
      * 删除指定数据条目
@@ -101,20 +100,19 @@ public abstract class BaseRecyclerViewAdapter<T, VH extends RecyclerView.ViewHol
      * @param data
      */
     public void remove(T data) {
-        dataLists.remove(data);
-        notifyDataSetChanged();
+        remove(dataLists.indexOf(data));
     }
 
 
     /**
      * 替换指定索引的数据条目
      *
-     * @param location
+     * @param position
      * @param newData
      */
-    public void replace(int location, T newData) {
-        dataLists.set(location, newData);
-        notifyDataSetChanged();
+    public void replace(int position, T newData) {
+        dataLists.set(position, newData);
+        notifyItemChanged(position);
     }
 
     /**
@@ -135,7 +133,7 @@ public abstract class BaseRecyclerViewAdapter<T, VH extends RecyclerView.ViewHol
      */
     public void move(int fromPosition, int toPosition) {
         Collections.swap(dataLists, fromPosition, toPosition);
-        notifyDataSetChanged();
+        notifyItemMoved(fromPosition,toPosition);
     }
 
     /**

@@ -63,9 +63,9 @@ public class XRecyclerViewAdapterActivity extends BaseActivity implements SwipeR
 
         //添加分割线
         recyclerView.addItemDecoration(new DividerDecoration(Color.parseColor("#C4C4C4"),1));
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-//        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 
         adapter = new TestAdapter(recyclerView, datas);
         //添加header，footer

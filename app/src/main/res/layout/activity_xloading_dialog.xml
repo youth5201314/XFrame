@@ -6,25 +6,25 @@
 
     <Button
         android:id="@+id/loading1"
-        android:text="弹出对话框（默认垂直显示）"
+        android:text="弹出对话框（默认水平显示）"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="show"/>
     <Button
         android:id="@+id/loading2"
-        android:text="弹出不可取消对话框（默认垂直显示）"
+        android:text="弹出不可取消对话框（默认水平显示）"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="show"/>
     <Button
         android:id="@+id/loading3"
-        android:text="弹出自定义文字（水平显示1）"
+        android:text="弹出自定义文字（垂直显示1）"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="show"/>
     <Button
         android:id="@+id/loading4"
-        android:text="弹出自定义文字（水平显示2）"
+        android:text="弹出自定义文字（垂直显示2）"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="show"/>

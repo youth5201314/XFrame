@@ -17,6 +17,7 @@ import com.youth.xf.BaseActivity;
 import com.youth.xf.R;
 import com.youth.xf.bean.News;
 import com.youth.xf.data.NewDataSource;
+import com.youth.xf.loder.GlideImageLoader;
 import com.youth.xf.ui.adapter.StickyHeaderAdapter;
 import com.youth.xf.view.GlideCircleTransform;
 import com.youth.xframe.XFrame;
@@ -25,6 +26,7 @@ import com.youth.xframe.adapter.XViewHolder;
 import com.youth.xframe.adapter.decoration.DividerDecoration;
 import com.youth.xframe.adapter.decoration.SpaceDecoration;
 import com.youth.xframe.adapter.decoration.StickyHeaderDecoration;
+import com.youth.xframe.utils.imageload.XImage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +49,11 @@ public class XMultiTypeAdapterActivity extends BaseActivity {
         mSwipeLayout.setEnabled(false);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.addItemDecoration(new DividerDecoration(Color.parseColor("#f2f2f2"),15));
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        //解决NestedScrollView嵌套RecycleView的滑动冲突问题
+//        recyclerView.setNestedScrollingEnabled(false);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         final MultiTypeAdapter adapter = new MultiTypeAdapter(recyclerView, NewDataSource.getNewsList());
         recyclerView.setAdapter(adapter);
@@ -99,12 +104,12 @@ public class XMultiTypeAdapterActivity extends BaseActivity {
                     holder.setText(R.id.newTitle, data.getTitle())
                             .setText(R.id.newAuthor,data.getAuthor())
                             .setText(R.id.newTime,data.getTime());
-                    ImageView view=holder.getView(R.id.newImage);
-                    Glide.with(XFrame.getContext())
-                            .load(data.getImageUrl())
-                            .crossFade()
-                            .transform(new GlideCircleTransform(XFrame.getContext()))
-                            .into(view);
+                    //holder.setImageUrl(R.id.newImage,data.getImageUrl(),GlideImageLoader.circleTransform)
+                    ImageView imageView= holder.getView(R.id.newImage);
+                    XImage.getInstance().load(imageView,
+                            data.getImageUrl(),
+                            GlideImageLoader.circleTransform);
+
                     break;
             }
         }

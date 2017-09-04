@@ -10,17 +10,68 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.FloatRange;
 import android.support.annotation.IntRange;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
 import com.youth.xframe.R;
 
 
 /**
- * 解放button写drawable(selector)的步骤
- *
- * https://github.com/niniloveyou/StateButton/blob/master/README_CHINESE.md
+ 解放button写drawable(selector)的步骤
+
+ //设置圆角度
+ app:radius="5dp"
+
+ //设置左右为半圆， 不用计算radius
+ app:round="true"
+
+ //设置背景切换动画时长
+ app:animationDuration="200"
+
+ //设置分割线间距
+ app:strokeDashGap="2dp"
+
+ //设置分割线宽度
+ app:strokeDashWidth="5dp"
+
+ //设置正常显示的边框宽度
+ app:normalStrokeWidth="2dp"
+
+ //设置按下时显示的边框宽度
+ app:pressedStrokeWidth="2dp"
+
+ //设置不可用时（enable = false）显示的边框宽度
+ app:unableStrokeWidth="2dp"
+
+ //设置正常显示的边框颜色
+ app:normalStrokeColor="@android:color/white"
+
+ //设置按下时显示的边框颜色
+ app:pressedStrokeColor="@android:color/white"
+
+ //设置不可用时（enable = false）显示的边框颜色
+ app:unableStrokeColor="@android:color/white"
+
+ //设置正常显示的文字颜色
+ app:normalTextColor="@android:color/white"
+
+ //设置按下状态显示的文字颜色
+ app:pressedTextColor="@android:color/white"
+
+ //设置不可用时（enable = false）显示的文字颜色
+ app:unableTextColor="@android:color/white"
+
+ //设置正常显示的背景颜色
+ app:normalBackgroundColor="@color/colorPrimaryDark"
+
+ //设置按下状态显示的背景颜色
+ app:pressedBackgroundColor="@color/colorPrimaryDark"
+
+ //设置不可用时（enable = false）背景颜色
+ app:unableBackgroundColor="@color/colorPrimaryDark"
+
  */
-public class XStateButton extends AppCompatButton {
+public class XStateButton extends AppCompatTextView {
     //text color
     private int mNormalTextColor = 0;
     private int mPressedTextColor = 0;

@@ -20,6 +20,9 @@ import com.youth.xframe.XFrame;
 import com.youth.xframe.utils.XEmptyUtils;
 import com.youth.xframe.utils.XOutdatedUtils;
 
+/**
+ * 加载等待提示框
+ */
 public class XLoadingDialog extends Dialog {
     public static final int HORIZONTAL = 0;
     public static final int VERTICAL = 1;

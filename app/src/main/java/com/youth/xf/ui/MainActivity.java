@@ -6,15 +6,14 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
 
-import com.youth.banner.Banner;
 import com.youth.xf.BaseActivity;
 import com.youth.xf.R;
 import com.youth.xf.ui.adapter.MyFragmentPagerAdapter;
-import com.youth.xframe.XFrame;
-import com.youth.xframe.utils.log.XLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +34,7 @@ public class MainActivity extends BaseActivity  {
         fragments=new ArrayList<>();
         fragments.add(new DemoFragment());
         fragments.add(new APIFragment());
+
     }
 
     @Override
@@ -45,7 +45,6 @@ public class MainActivity extends BaseActivity  {
         tabLayout.addTab(tabLayout.newTab().setText(titles[1]));
         viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager(),fragments,titles));
         tabLayout.setupWithViewPager(viewPager);
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

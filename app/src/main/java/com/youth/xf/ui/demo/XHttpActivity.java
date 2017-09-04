@@ -9,11 +9,11 @@ import com.youth.xf.R;
 import com.youth.xf.data.Weather;
 import com.youth.xframe.utils.http.HttpCallBack;
 import com.youth.xframe.utils.http.XHttp;
-import com.youth.xframe.utils.log.XLog;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class XHttpActivity extends BaseActivity {
 
@@ -38,10 +38,8 @@ public class XHttpActivity extends BaseActivity {
         request();
     }
 
-    /**
-     *
-     */
     public void request() {
+
         //这里是公用接口，没有办法演示传参，谅解
         String url = "http://wthrcdn.etouch.cn/weather_mini?citykey=101010100";
         /**

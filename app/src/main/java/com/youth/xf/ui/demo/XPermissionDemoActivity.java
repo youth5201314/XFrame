@@ -67,7 +67,6 @@ public class XPermissionDemoActivity extends BaseActivity implements View.OnClic
             case R.id.button3:
                 sendPermission();
                 break;
-
         }
     }
 
@@ -75,8 +74,7 @@ public class XPermissionDemoActivity extends BaseActivity implements View.OnClic
      * 拨打电话
      */
     private void doCallPhone() {
-        XPermission.requestPermissions(this, 100, new String[]{Manifest.permission
-                .CALL_PHONE}, new XPermission.OnPermissionListener() {
+        XPermission.requestPermissions(this, 100,new String[]{Manifest.permission.CALL_PHONE}, new XPermission.OnPermissionListener() {
             //权限申请成功时调用
             @Override
             public void onPermissionGranted() {
@@ -133,4 +131,6 @@ public class XPermissionDemoActivity extends BaseActivity implements View.OnClic
             }
         });
     }
+
+
 }
